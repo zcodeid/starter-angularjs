@@ -1,0 +1,20 @@
+var app = angular.module('app', [
+	'ui.router',
+	'ngAnimate',
+	'ngStorage',
+	'uiRouterStyles',
+	'ui.bootstrap',
+	'angular-loading-bar',
+	'toaster',
+	'ngMessages'
+]);
+
+app.run(function($rootScope, $state, $localStorage) {
+    $rootScope.$on('$stateChangeStart', function(event, toState) {
+        
+    });
+});
+
+app.controller("MainCtrl", function ($scope){
+	$scope.share = {};
+});

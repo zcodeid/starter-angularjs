@@ -1,0 +1,34 @@
+<div ng-controller="FormCtrl">
+    <form name="userForm" novalidate>
+    	<div class="field" ng-class="{ 'has-error': userForm.u.$touched && userForm.u.$invalid }">
+    	    <label ng-show="username.length > 0" class="show-hide">Username</label>
+    	    <input type="text" class="form-control" ng-model="username" name="u" placeholder="Username" ng-minlength="5" />
+    		<div class="help-block" ng-messages="userForm.u.$error" ng-if="userForm.u.$touched">
+    		    <p ng-message="minlength">Your name is too short.</p>
+    		    <p ng-message="maxlength">Your name is too long.</p>
+    		    <p ng-message="required">Your name is required.</p>
+    		</div>
+    	</div>
+        <div class="form-group" ng-class="{ 'has-error': userForm.name.$touched && userForm.name.$invalid }">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" ng-model="name" ng-minlength="5" ng-maxlength="10" required>
+            <div class="help-block" ng-messages="userForm.name.$error" ng-if="userForm.name.$touched">
+                <p ng-message="minlength">Your name is too short.</p>
+                <p ng-message="maxlength">Your name is too long.</p>
+                <p ng-message="required">Your name is required.</p>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': userForm.email.$touched && userForm.email.$invalid }">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control" ng-model="email" ng-minlength="5" ng-maxlength="20" required>
+            <div class="help-block" ng-messages="userForm.email.$error" ng-if="userForm.email.$touched">
+                <div ng-messages-include="messages.html"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-danger">Submit</button>
+        </div>
+    </form>
+
+    <button class="btn" ng-click="bing()">Test</button>
+</div>
