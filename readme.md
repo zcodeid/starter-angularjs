@@ -25,3 +25,4 @@ Ketik perintah berikut:
 * [Toaster](https://github.com/jirikavi/AngularJS-Toaster)
 * [Ng Table](http://ng-table.com)
 * [Live-Server](https://github.com/tapio/live-server)
+* [Chart](http://jtblin.github.io/angular-chart.js/)
