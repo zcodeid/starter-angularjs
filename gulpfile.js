@@ -16,30 +16,29 @@ gulp.task('scripts', function() {
         .pipe(livereload())
 });
 
-gulp.task('copy-css', function (){
-	gulp.src('css/vendor/**/*')
-	.pipe(gulp.dest('dist/css'))
-});
-
-gulp.task('copy-js', function (){
-	gulp.src('js/vendor/**/*')
-	.pipe(gulp.dest('dist/js'))
-});
-
-gulp.task('copy-html', function (){
-	gulp.src('tpl/**/*')
-	.pipe(gulp.dest('dist/tpl'))
-});
-
-gulp.task('copy-img', function (){
-	gulp.src('images/**/*')
-	.pipe(gulp.dest('dist/images'))
-});
-
-gulp.task('copy-index', function (){
+gulp.task('copy', function (){
 	gulp.src('index.min.html')
 	.pipe(rename('index.html'))
-	.pipe(gulp.dest('dist'))
+	.pipe(gulp.dest('dist'));
+
+	gulp.src('favicon.ico')
+	.pipe(gulp.dest('dist'));
+
+	gulp.src('images/**/*')
+	.pipe(gulp.dest('dist/images'));
+
+	gulp.src('tpl/**/*')
+	.pipe(gulp.dest('dist/tpl'));
+
+	gulp.src('js/vendor/**/*')
+	.pipe(gulp.dest('dist/js'));
+
+	gulp.src('css/vendor/**/*')
+	.pipe(gulp.dest('dist/css'));
+
+	gulp.src('css/local/**/*')
+	.pipe(gulp.dest('dist/css/local'));
+
 });
 
 gulp.task('watch', function() {
@@ -47,4 +46,4 @@ gulp.task('watch', function() {
     gulp.watch('js/local/**/*.js', ['scripts']);
 });
 
-gulp.task('default', ['scripts', 'copy-index', 'copy-html', 'copy-img', 'copy-js', 'copy-css', 'watch']);
+gulp.task('default', ['scripts', 'copy', 'watch']);
