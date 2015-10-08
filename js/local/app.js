@@ -6,7 +6,8 @@ var app = angular.module('app', [
 	'ui.bootstrap',
 	'angular-loading-bar',
 	'toaster',
-	'ngMessages'
+	'ngMessages',
+	'chart.js'
 ]);
 
 app.run(function($rootScope, $state, $localStorage) {
