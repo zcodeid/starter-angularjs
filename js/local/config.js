@@ -4,12 +4,11 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
     .state('app', {
         url: '/',
         templateUrl: 'tpl/app.html',
-        controller: function($scope, $state) {
-        	$state.transitionTo('app.home');
-        }
+        abstract: true
     })
 
     .state('app.home', {
+    	url: '',
         templateUrl: 'tpl/home.html',
         controller: function ($scope){
         	$scope.share.menu = 'home';
@@ -17,6 +16,7 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
     })
 
     .state('app.about', {
+    	url: 'about',
         template: '<h1>About</h1>',
         controller: function ($scope){
         	$scope.share.menu = 'about';
@@ -24,6 +24,7 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
     })
 
     .state('app.help', {
+    	url: 'help',
         template: '<h1>Help</h1>',
         controller: function ($scope){
         	$scope.share.menu = 'help';
