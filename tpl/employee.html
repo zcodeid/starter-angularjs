@@ -1,0 +1,44 @@
+<h1>Employee</h1>
+<div class="container">
+    <div class="panel panel-default">
+        <div class="row" style="margin:7px">
+            <div class="col-xs-6">
+                <div>
+                    <a href="" class="btn btn-sm btn-success" ng-click="add()"><i class="fa fa-plus"> </i>  Tambahkan Anggota</a>
+                </div>
+            </div>
+            <!-- Pencarian -->
+            <div class="col-md-3 pull-right">
+                <form class="input-group custom-search-form" ng-submit="tableParams.reload()">
+                    <input type="text" class="form-control" ng-model="query" placeholder="Cari...">
+                    <span class="input-group-btn">
+    	                <button class="btn btn-default" type="button">
+    	                    <span class="fa fa-search"></span>
+                    </button>
+                    </span>
+                </form>
+                <!-- /input-group -->
+            </div>
+        </div>
+        <div class="panel-body" style="padding:0px">
+
+        	<table ng-table="tableEmployee" style="margin:0px" class="table table-bordered table-striped" template-pagination="custom/pager">
+        	    <tr ng-repeat="m in $data">
+        	        <td data-title="'Name'">{{m.name}}</td>
+        	        <td data-title="'Username'">{{m.username}}</td>
+        	        <td data-title="'Email'">{{m.email}}</td>
+        	        <td data-title="'Phone'">{{m.phone}}</td>
+        	        <td data-title="'Actions'" style="width:100px" align="center">
+        	            <button type="button" class="btn btn-xs btn-success">
+        	                <span class="fa fa-pencil"></span>
+        	            </button>
+        	            <button type="button" class="btn btn-xs btn-danger">
+        	                <span class="fa fa-trash"></span>
+        	            </button>
+        	        </td>
+        	    </tr>
+        	</table>
+        </div>
+        <!-- <div class="panel-footer"></div> -->
+    </div>
+</div>

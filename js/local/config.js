@@ -30,6 +30,12 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
         }
     })
 
+    .state('app.employee', {
+    	url: 'employee',
+    	templateUrl: 'tpl/employee.html',
+    	controller: 'EmployeeCtrl'
+    })
+
     .state('login', {
         url: '/login',
         templateUrl: 'tpl/login.html',
@@ -51,7 +57,9 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
     	templateUrl: 'tpl/demo/form.html',
     	controller: 'FormCtrl'
     })
-    ;
+	
+
+	;
 
     $urlRouterProvider.otherwise('/');
 });

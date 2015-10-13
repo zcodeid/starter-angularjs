@@ -1,0 +1,37 @@
+<script type="text/ng-template" id="employee-modal.html">
+    <form action="" method="" ng-submit="createEmployee()">
+        <div class="modal-header">
+            <h3 class="modal-title text-center"><strong>{{title}}</strong></h3>
+        </div>
+        <div class="modal-body">
+            <div class="field">
+                <label ng-show="model.username" class="show-hide">Username</label>
+                <input type="text" class="form-control" ng-model="model.username" placeholder="Username" />
+            </div>
+            <div class="field">
+                <label ng-show="model.name" class="show-hide">Full Name</label>
+                <input type="text" class="form-control" ng-model="model.name" placeholder="Full Name" />
+            </div>
+            <div class="field">
+                <label ng-show="model.password" class="show-hide">Password</label>
+                <input type="password" class="form-control" ng-model="model.password" placeholder="Password" />
+            </div>
+            <div class="field">
+                <label ng-show="model.repassword" class="show-hide">Retype Password</label>
+                <input type="password" class="form-control" ng-model="model.repassword" placeholder="Password" />
+            </div>
+            <div class="field">
+                <label ng-show="model.email" class="show-hide">Email</label>
+                <input type="text" class="form-control" ng-model="model.email" placeholder="Email" />
+            </div>
+            <div class="field">
+                <label ng-show="model.phone" class="show-hide">Phone</label>
+                <input type="text" class="form-control" ng-model="model.phone" placeholder="Phone" />
+            </div>
+        </div>
+        <div class="modal-footer">
+            <input type="submit" class="btn btn-md btn-danger" value="Cancel" />
+            <input type="submit" class="btn btn-md btn-success" value="Create" />
+        </div>
+    </form>
+</script>

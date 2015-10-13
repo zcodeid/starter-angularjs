@@ -1,6 +1,7 @@
 var app = angular.module('app', [
 	'ui.router',
 	'ngAnimate',
+	'ngTable',
 	'ngStorage',
 	'uiRouterStyles',
 	'ui.bootstrap',
