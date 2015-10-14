@@ -1,8 +1,34 @@
 app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
     $stateProvider
 
+    .state('landing', {
+    	url: '/',
+    	controller: 'LandingCtrl',
+    	templateUrl: 'tpl/landing.html',
+    	data: {
+    		css: 'css/local/landing-page.css'
+    	}
+    })
+
+    .state('xlanding', {
+    	url: '/x',
+    	views: {
+    			""					: { templateUrl: "tpl/landing/index.html"},
+    	        "header@landing" 	: { templateUrl: "tpl/landing/header.html"},
+    	        "about@landing" 	: { templateUrl: "tpl/landing/about.html"},
+    	        "contact@landing" 	: { templateUrl: "tpl/landing/contact.html"},
+    	        "section-a@landing"	: { templateUrl: "tpl/landing/section-a.html"},
+    	        "section-b@landing"	: { templateUrl: "tpl/landing/section-b.html"},
+    	        "services@landing"	: { templateUrl: "tpl/landing/services.html"},
+    	        "footer@landing"	: { templateUrl: "tpl/landing/footer.html"}
+	    },
+    	data: {
+    		css: 'css/local/landing-page.css'
+    	}
+    })
+
     .state('app', {
-        url: '/',
+        url: '/app',
         templateUrl: 'tpl/app.html',
         abstract: true
     })
@@ -54,11 +80,28 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
         }
     })
 
-    .state('app.form', {
-    	templateUrl: 'tpl/demo/form.html',
-    	controller: 'FormCtrl'
-    })
-	
+	.state('demo', {
+		url: '/demo',
+		template: '<ui-view/>',
+		abstract: true
+	})
+
+	.state('demo.dropdown', {
+		url: '',
+		templateUrl: 'tpl/demo/dropdown.html',
+		controller: 'DropdownCtrl'
+	})
+
+	.state('demo.button', {
+		url: '/button',
+		templateUrl: 'tpl/demo/button.html',
+		controller: 'ButtonsCtrl'
+	})
+
+	.state('demo.form', {
+		templateUrl: 'tpl/demo/form.html',
+		controller: 'FormCtrl'
+	})
 
 	;
 

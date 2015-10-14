@@ -15,14 +15,23 @@
                 <li ng-class="{'active':share.menu=='about'}"><a href="" ui-sref="app.about">About</a></li>
                 <li ng-class="{'active':share.menu=='help'}"><a href="" ui-sref="app.help">Help</a></li>
                 <li ng-class="{'active':share.menu=='employee'}"><a href="" ui-sref="app.employee">Employee</a></li>
-                <li ng-class="{'active':share.menu=='form'}"><a href="" ui-sref="app.form">Form</a></li>
+                <li ng-class="{'active':share.menu=='employee'}" uib-dropdown>
+                    <a href id="simple-dropdown" uib-dropdown-toggle>Test <b class="caret"></b></a>
+                    <ul class="uib-dropdown-menu" aria-labelledby="simple-dropdown">
+                        <li role="menuitem"><a href="#">Action</a></li>
+                        <li role="menuitem"><a href="#">Another action</a></li>
+                        <li role="menuitem"><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li role="menuitem"><a href="#">Separated link</a></li>
+                    </ul>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-            	<li><a href="" ui-sref="login">Login</a></li>
-                <li class="dropdown">
-                    <a href="#" dropdown-toggle>Account <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
+                <li><a href="" ui-sref="login">Login</a></li>
+                <li class="dropdown" uib-dropdown>
+                    <a href="#" uib-dropdown-toggle>Account <b class="caret"></b></a>
+                    <ul class="uib-dropdown-menu">
+                        <li role="menuitem">
                             <div class="navbar-content">
                                 <div class="row">
                                     <div class="col-md-5">
@@ -61,5 +70,5 @@
     </div>
 </nav>
 <div class="container" style="margin-top:50px">
-	<ui-view></ui-view>
+    <ui-view></ui-view>
 </div>
