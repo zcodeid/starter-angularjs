@@ -27,12 +27,19 @@ angular.module('app')
     slimscroll: ['plugins/slimScroll/jquery.slimscroll.min.js'],
     fastclick: ['plugins/fastclick/fastclick.min.js'],
     adminlte: [
-    	'assets/js/app.ui.min.js',
+        'plugins/jQuery/jQuery-2.1.4.min.js',
+        'plugins/jquery-ui/jquery-ui.min.js',
+        'plugins/bootstrap/js/bootstrap.min.js',
+        'assets/js/app.ui.min.js',
+        'plugins/bootstrap/css/bootstrap.min.css',
+        'plugins/iCheck/flat/blue.css',
         'assets/css/AdminLTE.min.css',
         'assets/css/skins/_all-skins.min.css'
     ],
-    landing: ['assets/css/landing-page.css']
-
+    landing: [
+        'plugins/bootstrap/css/bootstrap.min.css',
+        'assets/css/landing-page.css'
+    ]
 })
 
 .config(['$ocLazyLoadProvider', function($ocLazyLoadProvider) {

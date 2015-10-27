@@ -1,13 +1,11 @@
 app.config(function($stateProvider, $urlRouterProvider, $httpProvider, JQ_CONFIG) {
-    $stateProvider
-
-        .state('landing', {
+    $stateProvider.state('landing', {
         url: '/',
         controller: 'LandingCtrl',
         templateUrl: 'assets/tpl/landing.html',
-        data: {
-            css: 'assets/css/landing-page.css'
-        }
+        resolve: ['uiLoad', function(uiLoad) {
+            return uiLoad.load(JQ_CONFIG.landing);
+        }]
     })
 
     .state('app', {
