@@ -1,4 +1,4 @@
-app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+app.config(function($stateProvider, $urlRouterProvider, $httpProvider, JQ_CONFIG) {
     $stateProvider
 
         .state('landing', {
@@ -13,9 +13,10 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
     .state('app', {
         url: '/app',
         templateUrl: 'assets/tpl/app.html',
-        controller: function($scope, $ocLazyLoad) {
-            $ocLazyLoad.load(['plugins/morris/morris.min.js', 'assets/js/pages/dashboard.js', 'assets/js/demo.js']);
-        },
+        resolve: ['uiLoad', function(uiLoad) {
+            return uiLoad.load(JQ_CONFIG.adminlte);
+        }],
+        controller: function($scope) {},
         abstract: true
     })
 
@@ -43,10 +44,10 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
         }
     })
 
-    .state('app.employee', {
-        url: 'employee',
-        templateUrl: 'assets/tpl/employee.html',
-        controller: 'EmployeeCtrl'
+    .state('app.dosenForm', {
+        url: '/dosenForm/:id/:type',
+        templateUrl: 'assets/tpl/dosenForm.html',
+        controller: 'DosenCtrl'
     })
 
     .state('login', {

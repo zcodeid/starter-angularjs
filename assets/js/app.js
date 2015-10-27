@@ -7,9 +7,8 @@ var app = angular.module('app', [
     'ui.bootstrap',
     'angular-loading-bar',
     'toaster',
-    'ngMessages',
-    'chart.js',
-    'oc.lazyLoad'
+    'oc.lazyLoad',
+    'ui.load'
 ]);
 
 app.run(function($rootScope, $location, $state, $localStorage, $anchorScroll, $stateParams) {
