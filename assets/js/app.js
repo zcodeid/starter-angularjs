@@ -11,6 +11,10 @@ var app = angular.module('app', [
     'ui.load'
 ]);
 
+app.config(['$compileProvider', function ($compileProvider) {
+    $compileProvider.debugInfoEnabled(false);
+}]);
+
 app.run(function($rootScope, $location, $state, $localStorage, $anchorScroll, $stateParams) {
     $rootScope.$on('$stateChangeStart', function(event, toState) {
 
