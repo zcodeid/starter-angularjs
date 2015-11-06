@@ -1,6 +1,6 @@
 app.config(function($stateProvider, $urlRouterProvider, $httpProvider, JQ_CONFIG) {
     $stateProvider.state('landing', {
-        url: '/',
+        url: '/x',
         controller: 'LandingCtrl',
         templateUrl: 'assets/tpl/landing.html',
         resolve: ['uiLoad', function(uiLoad) {
@@ -9,7 +9,7 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider, JQ_CONFIG
     })
 
     .state('app', {
-        url: '/app',
+        url: '/',
         templateUrl: 'assets/tpl/app.html',
         resolve: ['uiLoad', function(uiLoad) {
             return uiLoad.load(JQ_CONFIG.adminlte);
