@@ -51,10 +51,7 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider, JQ_CONFIG
     .state('login', {
         url: '/login',
         templateUrl: 'assets/tpl/login.html',
-        controller: 'LoginCtrl',
-        data: {
-            css: 'css/local/login.css'
-        }
+        controller: 'LoginCtrl'
     })
 
     .state('register', {
