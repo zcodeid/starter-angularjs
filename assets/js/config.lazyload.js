@@ -28,9 +28,6 @@ angular.module('app')
     fastclick: ['plugins/fastclick/fastclick.min.js'],
     adminlte: [
         'assets/js/app.ui.min.js',
-        'plugins/iCheck/flat/blue.css',
-        'assets/css/AdminLTE.min.css',
-        'assets/css/skins/_all-skins.min.css'
     ],
     landing: [
         'assets/css/landing-page.css'

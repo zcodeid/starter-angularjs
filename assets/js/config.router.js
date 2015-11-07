@@ -1,47 +1,51 @@
 app.config(function($stateProvider, $urlRouterProvider, $httpProvider, JQ_CONFIG) {
-    $stateProvider.state('landing', {
-        url: '/x',
-        controller: 'LandingCtrl',
-        templateUrl: 'assets/tpl/landing.html',
-        resolve: ['uiLoad', function(uiLoad) {
-            return uiLoad.load(JQ_CONFIG.landing);
-        }]
-    })
-
-    .state('app', {
+    $stateProvider.state('app', {
         url: '/',
         templateUrl: 'assets/tpl/app.html',
-        resolve: ['uiLoad', function(uiLoad) {
-            return uiLoad.load(JQ_CONFIG.adminlte);
-        }],
         controller: function($scope) {},
     })
 
     .state('home', {
         url: '/home',
-        templateUrl: 'assets/tpl/home.html',
-        resolve: ['uiLoad', function(uiLoad) {
-            return uiLoad.load(JQ_CONFIG.adminlte);
-        }],
-        controller: function($scope) {
-            $scope.share.menu = 'home';
-        }
+        templateUrl: 'assets/tpl/home.html'
     })
 
     .state('login', {
         url: '/login',
         templateUrl: 'assets/tpl/login.html',
-        controller: 'LoginCtrl'
+        controller: 'LoginCtrl',
+        resolve: {
+            deps: ['$ocLazyLoad',
+                function($ocLazyLoad) {
+                    return $ocLazyLoad.load(['assets/js/controllers/auth.js']);
+                }
+            ]
+        }
     })
 
     .state('muwakif', {
         url: '/muwakif',
-        templateUrl: 'assets/tpl/muwakif.html'
+        templateUrl: 'assets/tpl/muwakif.html',
+        controller: 'WakafCtrl',
+        resolve: {
+            deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                return $ocLazyLoad.load(['assets/js/controllers/wakaf.js']);
+            }]
+        }
     })
 
     .state('forms', {
         url: '/forms',
-        templateUrl: 'assets/tpl/forms.html'
+        params: {
+            wakaf: null
+        },
+        templateUrl: 'assets/tpl/forms.html',
+        controller: 'WakafDetailCtrl',
+        resolve: {
+            deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                return $ocLazyLoad.load(['assets/js/controllers/wakaf.js']);
+            }]
+        }
     })
 
     .state('profile', {
