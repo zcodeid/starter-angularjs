@@ -15,15 +15,33 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider, JQ_CONFIG
             return uiLoad.load(JQ_CONFIG.adminlte);
         }],
         controller: function($scope) {},
-        abstract: true
     })
 
-    .state('app.home', {
-        url: '',
+    .state('home', {
+        url: '/home',
         templateUrl: 'assets/tpl/home.html',
+        resolve: ['uiLoad', function(uiLoad) {
+            return uiLoad.load(JQ_CONFIG.adminlte);
+        }],
         controller: function($scope) {
             $scope.share.menu = 'home';
         }
+    })
+
+    .state('login', {
+        url: '/login',
+        templateUrl: 'assets/tpl/login.html',
+        controller: 'LoginCtrl'
+    })
+
+    .state('muwakif', {
+        url: '/muwakif',
+        templateUrl: 'assets/tpl/muwakif.html'
+    })
+
+    .state('forms', {
+        url: '/forms',
+        templateUrl: 'assets/tpl/forms.html'
     })
 
     .state('app.about', {
@@ -48,11 +66,6 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider, JQ_CONFIG
         controller: 'DosenCtrl'
     })
 
-    .state('login', {
-        url: '/login',
-        templateUrl: 'assets/tpl/login.html',
-        controller: 'LoginCtrl'
-    })
 
     .state('register', {
         url: '/register',
@@ -87,5 +100,5 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider, JQ_CONFIG
 
     ;
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/home');
 });
