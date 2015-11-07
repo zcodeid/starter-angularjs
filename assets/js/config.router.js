@@ -44,61 +44,20 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider, JQ_CONFIG
         templateUrl: 'assets/tpl/forms.html'
     })
 
-    .state('app.about', {
-        url: 'about',
-        template: '<h1>About</h1>',
-        controller: function($scope) {
-            $scope.share.menu = 'about';
-        }
+    .state('profile', {
+        url: '/profile',
+        templateUrl: 'assets/tpl/profile.html'
     })
 
-    .state('app.help', {
-        url: 'help',
-        template: '<h1>Help</h1>',
-        controller: function($scope) {
-            $scope.share.menu = 'help';
-        }
+    .state('wakaf', {
+        url: '/wakaf',
+        templateUrl: 'assets/tpl/wakafMaps.html'
     })
 
-    .state('app.dosenForm', {
-        url: '/dosenForm/:id/:type',
-        templateUrl: 'assets/tpl/dosenForm.html',
-        controller: 'DosenCtrl'
-    })
-
-
-    .state('register', {
-        url: '/register',
-        templateUrl: 'assets/tpl/register.html',
-        data: {
-            css: 'css/local/login.css'
-        }
-    })
-
-    .state('demo', {
-        url: '/demo',
-        template: '<ui-view/>',
-        abstract: true
-    })
-
-    .state('demo.dropdown', {
-        url: '',
-        templateUrl: 'assets/tpl/demo/dropdown.html',
-        controller: 'DropdownCtrl'
-    })
-
-    .state('demo.button', {
-        url: '/button',
-        templateUrl: 'assets/tpl/demo/button.html',
-        controller: 'ButtonsCtrl'
-    })
-
-    .state('demo.form', {
-        templateUrl: 'assets/tpl/demo/form.html',
-        controller: 'FormCtrl'
-    })
-
-    ;
+    .state('zcode', {
+        url: '/zcode',
+        templateUrl: 'assets/tpl/zcode.html'
+    });
 
     $urlRouterProvider.otherwise('/home');
 });
