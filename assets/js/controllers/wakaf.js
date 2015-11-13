@@ -33,7 +33,7 @@ app.controller('WakafCtrl', function($scope, $state, $interval, WakafSvc, toaste
 
 
 
-app.controller('WakafDetailCtrl', function($scope, $interval, $stateParams, WakafSvc, toaster) {
+app.controller('WakafDetailCtrl', function($scope, $interval, $stateParams, $state, WakafSvc, toaster) {
     $scope.wakaf = $stateParams.wakaf;
 
     $scope.submit = function() {
@@ -41,6 +41,7 @@ app.controller('WakafDetailCtrl', function($scope, $interval, $stateParams, Waka
         WakafSvc.save(data).then(function() {
             $scope.wakaf = {};
             toaster.pop('success', 'Update Wakaf', 'Success update data wakaf');
+            $state.go('muwakif');
         }, function(res) {
             console.log(res);
             toaster.pop('error', 'Update Wakaf', 'Failed update data wakaf');
