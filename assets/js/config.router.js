@@ -10,6 +10,11 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider, JQ_CONFIG
         templateUrl: 'assets/tpl/home.html'
     })
 
+    .state('logins', {
+        url: '/logins',
+        templateUrl: 'assets/tpl/logins.html'
+    })
+
     .state('branch', {
         url: '/branch',
         templateUrl: 'assets/tpl/branch.html',
