@@ -42,19 +42,46 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider, JQ_CONFIG
     .state('employee', {
         url: '/employee',
         templateUrl: 'assets/tpl/employee.html',
-        controller: 'EmployeeCtrl'
+        controller: 'EmployeeCtrl',
+        resolve: {
+            deps: ['$ocLazyLoad',
+                function($ocLazyLoad) {
+                    return $ocLazyLoad.load(['assets/js/controllers/employee.js', 'assets/js/services/employee.js']);
+                }
+            ]
+        },
+        params: {
+            branch: null
+        }
     })
 
     .state('employeeForm', {
         url: '/employee-form',
-        templateUrl: 'assets/tpl/employee-form.html',
-        controller: 'EmployeeFormCtrl'
+        templateUrl: 'assets/tpl/employee.form.html',
+        controller: 'EmployeeFormCtrl',
+        resolve: {
+            deps: ['$ocLazyLoad',
+                function($ocLazyLoad) {
+                    return $ocLazyLoad.load(['assets/js/controllers/employee.js', 'assets/js/services/employee.js']);
+                }
+            ]
+        },
+        params: {
+            branch: null
+        }
     })
 
     .state('customer', {
         url: '/customer',
         templateUrl: 'assets/tpl/customer.html',
-        controller: 'CustomerCtrl'
+        controller: 'CustomerCtrl',
+        resolve: {
+            deps: ['$ocLazyLoad',
+                function($ocLazyLoad) {
+                    return $ocLazyLoad.load(['assets/js/controllers/customer.js', 'assets/js/services/customer.js']);
+                }
+            ]
+        }
     })
 
     .state('customerForm', {
@@ -66,7 +93,14 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider, JQ_CONFIG
     .state('car', {
         url: '/car',
         templateUrl: 'assets/tpl/car.html',
-        controller: 'CarCtrl'
+        controller: 'CarCtrl',
+        resolve: {
+            deps: ['$ocLazyLoad',
+                function($ocLazyLoad) {
+                    return $ocLazyLoad.load(['assets/js/controllers/car.js', 'assets/js/services/car.js']);
+                }
+            ]
+        }
     })
 
     .state('carForm', {
