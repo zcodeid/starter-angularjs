@@ -39,7 +39,7 @@ app.config(function(localStorageServiceProvider) {
     localStorageServiceProvider.setStorageType('localStorage'); //or sessionStorage
 });
 
-app.run(function($rootScope, $location, $state, $localStorage, $anchorScroll, $stateParams) {
+app.run(function($rootScope, $location, $state, $anchorScroll, $stateParams) {
     $rootScope.$on('$stateChangeStart', function(event, toState) {
 
     });
