@@ -93,7 +93,11 @@
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
-                    <button type="submit" class="btn btn-primary pull-right" ng-click="submit()">Submit</button>
+                	<div class="pull-right">
+                		<button type="submit" class="btn btn-primary" ng-click="submit()">Simpan</button>
+                		<button type="button" class="btn btn-success" ng-click="approve()" ng-hide="wakaf.status">Approve</button>	
+                		<button type="button" class="btn btn-danger" ui-sref="muwakif">Cancel</button>	
+                	</div>
                 </div>
             </form>
         </div>

@@ -45,14 +45,17 @@ app.run(function($rootScope, $location, $state, $anchorScroll, $stateParams) {
     });
 });
 
-app.controller("MainCtrl", function($scope, localStorageService) {
+app.controller("MainCtrl", function($scope, $state, localStorageService) {
     var token = localStorageService.get('token');
+    var user = localStorageService.get('user');
     $scope.share = {
-    	isLogged: token != null
+    	isLogged: token != null,
+    	user: user
     };
 
     $scope.logout = function (){
     	localStorageService.set('token', null);
     	$scope.share.isLogged = false;
+    	$state.go('home');
     }
 });

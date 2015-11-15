@@ -1,4 +1,3 @@
-
 app.controller('WakafCtrl', function($scope, $state, $interval, WakafSvc, toaster) {
     $scope.wakafs = [];
 
@@ -11,7 +10,16 @@ app.controller('WakafCtrl', function($scope, $state, $interval, WakafSvc, toaste
     }
 
     $scope.detail = function(d) {
-        $state.go('forms', {wakaf: d});
+        $state.go('forms', {
+            wakaf: d
+        });
+    }
+
+    $scope.delete = function(d) {
+        var c = confirm("Apakah yakin akan menghapus data muwakif?");
+        if (c) WakafSvc.delete(d).then(function(res) {
+            toaster.pop('success', '', 'Berhasil menghapus data muwakif');
+        });
     }
 
     $scope.getStatus = function(code) {
@@ -35,7 +43,10 @@ app.controller('WakafCtrl', function($scope, $state, $interval, WakafSvc, toaste
 
 app.controller('WakafDetailCtrl', function($scope, $interval, $stateParams, $state, WakafSvc, toaster) {
     $scope.wakaf = $stateParams.wakaf;
-
+    $scope.approve = function (){
+    	$scope.wakaf.status = 1;
+    	$scope.submit();
+    }
     $scope.submit = function() {
         var data = $scope.wakaf;
         WakafSvc.save(data).then(function() {
@@ -43,7 +54,6 @@ app.controller('WakafDetailCtrl', function($scope, $interval, $stateParams, $sta
             toaster.pop('success', 'Update Wakaf', 'Success update data wakaf');
             $state.go('muwakif');
         }, function(res) {
-            console.log(res);
             toaster.pop('error', 'Update Wakaf', 'Failed update data wakaf');
         });
     }
