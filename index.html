@@ -27,7 +27,7 @@
         <!-- Header -->
         <header class="main-header">
             <!-- Logo -->
-            <a href="index.html" class="logo">
+            <a href="/" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>W</b><small>M</small></span>
                 <!-- logo for regular state and mobile devices -->
@@ -59,7 +59,7 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="" class="btn btn-default btn-flat" ng-click="logout()">Sign out</a>
                                     </div>
                                 </li>
                             </ul>
@@ -91,23 +91,23 @@
                             <i class="fa fa-home"></i> <span>Home</span>
                         </a>
                     </li>
-                    <li>
+                    <li ng-hide="share.isLogged">
                         <a ui-sref="login">
                             <i class="fa fa-dot-circle-o"></i> <span>Sign In</span>
                         </a>
                     </li>
-                    <li>
+                    <li ng-show="share.isLogged">
                         <a ui-sref="muwakif">
                             <i class="fa fa-university"></i> <span>Muwakif</span>
                             <small class="label pull-right bg-yellow">12</small>
                         </a>
                     </li>
-                    <li>
+                    <li ng-show="share.isLogged">
                         <a ui-sref="forms">
                             <i class="fa fa-edit"></i> <span>Forms</span>
                         </a>
                     </li>
-                    <li>
+                    <li ng-show="share.isLogged">
                         <a ui-sref="profile">
                             <i class="fa fa-user"></i> <span>Edit Profile</span>
                         </a>

@@ -12,7 +12,7 @@ var app = angular.module('app', [
 ]);
 
 app.constant('config', {
-    url: 'http://zcodeapi.herokuapp.com/api'
+    url: 'http://localhost:3000/api'
 });
 
 app.config(['$compileProvider', function($compileProvider) {
@@ -36,7 +36,7 @@ app.config(
 
 app.config(function(localStorageServiceProvider) {
     localStorageServiceProvider.setPrefix('api');
-    localStorageServiceProvider.setStorageType('localStorage'); //or sessionStorage
+    localStorageServiceProvider.setStorageType('localStorage'); // localStorage or sessionStorage
 });
 
 app.run(function($rootScope, $location, $state, $anchorScroll, $stateParams) {
@@ -45,6 +45,14 @@ app.run(function($rootScope, $location, $state, $anchorScroll, $stateParams) {
     });
 });
 
-app.controller("MainCtrl", function($scope) {
-    $scope.share = {};
+app.controller("MainCtrl", function($scope, localStorageService) {
+    var token = localStorageService.get('token');
+    $scope.share = {
+    	isLogged: token != null
+    };
+
+    $scope.logout = function (){
+    	localStorageService.set('token', null);
+    	$scope.share.isLogged = false;
+    }
 });
