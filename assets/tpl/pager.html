@@ -1,0 +1,9 @@
+<script type="text/ng-template" id="pager">
+    <div layout="row" class="center center-text ng-cloak">
+        <!--<pre>{{pages|json}}</pre>-->
+        <small ng-repeat="page in pages" ng-class="{'disabled': !page.active, 'previous': page.type == 'prev', 'next': page.type == 'next'}" ng-show="page.type == 'prev' || page.type == 'next'" ng-switch="page.type" style="margin-right:30px">
+    	    <a ng-switch-when="prev" ng-click="params.page(page.number)" href="">&laquo; Prev</a>
+    	    <a ng-switch-when="next" ng-click="params.page(page.number)" href="">Next &raquo;</a>
+    	</small>
+    </div>
+</script>

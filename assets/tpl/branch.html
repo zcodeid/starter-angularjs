@@ -1,0 +1,36 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>Branch<small>List</small></h1>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="col-md-12">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <button class="btn btn-sm btn-default" ui-sref="branchForm"><i class="fa fa-plus"></i> Add Branch</button>
+                <div class="box-tools">
+                    <div class="input-group" style="width: 150px;">
+                        <input type="text" name="table_search" class="form-control input-sm pull-right" placeholder="Search">
+                        <div class="input-group-btn">
+                            <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-body table-responsive no-padding">
+            	<table ng-table="tableBranch" class="table bordered table-hover highlight" show-filter="false" template-pagination="pager">
+            	    <tr ng-repeat="c in $data" ng-click="detail(c)">
+            	        <td title="'Branch'">{{c.name}}</td>
+            	        <td title="'Phone'">{{c.phone}}</td>
+            	        <td title="'Address'">{{c.address}}</td>
+            	    </tr>
+            	</table>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+            </div>
+            <!-- /.box-footer -->
+        </div>
+    </div>
+</section>
+<!-- /.content -->
