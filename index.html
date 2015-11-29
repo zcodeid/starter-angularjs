@@ -4,8 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Wakaf Maps Dashboard</title>
-
+    <title>Rent Car</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
@@ -15,11 +14,9 @@
     <link rel="stylesheet" href="plugins/angular/ng-table/ng-table.min.css">
     <link rel="stylesheet" href="assets/css/floating-label.css">
     <link rel="stylesheet" href="assets/css/app.css">
-    <link rel="stylesheet" href="plugins/iCheck/flat/blue.css">
     <link rel="stylesheet" href="assets/css/AdminLTE.min.css">
     <link rel="stylesheet" href="assets/css/skins/_all-skins.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini" ng-controller="MainCtrl">
@@ -29,9 +26,9 @@
             <!-- Logo -->
             <a href="index.html" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>W</b><small>M</small></span>
+                <span class="logo-mini"><b>R</b><small>Car</small></span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Wakaf</b><small>Maps</small></span>
+                <span class="logo-lg"><b>Rent</b><small>Car</small></span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
@@ -45,14 +42,14 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="assets/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                                <span class="hidden-xs">Alexander Pierce</span>
+                                <span class="hidden-xs">Prawito Hudoro</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header">
                                     <img src="assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                                     <p>
-                                        Alexander Pierce - Web Developer
+                                        Prawito Hudoro - Web Developer
                                         <small>Member since Nov. 2012</small>
                                     </p>
                                 </li>
@@ -68,7 +65,6 @@
                 </div>
             </nav>
         </header>
-
         <!-- Left sidebar -->
         <aside class="main-sidebar">
             <!-- sidebar: style can be found in sidebar.less -->
@@ -79,7 +75,7 @@
                         <img src="assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info">
-                        <p>Alexander Pierce</p>
+                        <p>Prawito Hudoro</p>
                         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                     </div>
                 </div>
@@ -87,8 +83,28 @@
                 <ul class="sidebar-menu">
                     <li class="header">MAIN MENU</li>
                     <li>
-                        <a ui-sref="home">
+                        <a href="" ui-sref="home">
                             <i class="fa fa-home"></i> <span>Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" ui-sref="branch">
+                            <i class="fa fa-home"></i> <span>Branch</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" ui-sref="employee">
+                            <i class="fa fa-home"></i> <span>Employee</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" ui-sref="customer">
+                            <i class="fa fa-home"></i> <span>Customer</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" ui-sref="car">
+                            <i class="fa fa-home"></i> <span>Car</span>
                         </a>
                     </li>
                     <li>
@@ -96,42 +112,18 @@
                             <i class="fa fa-dot-circle-o"></i> <span>Sign In</span>
                         </a>
                     </li>
-                    <li>
-                        <a ui-sref="muwakif">
-                            <i class="fa fa-university"></i> <span>Muwakif</span>
-                            <small class="label pull-right bg-yellow">12</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a ui-sref="forms">
-                            <i class="fa fa-edit"></i> <span>Forms</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a ui-sref="profile">
-                            <i class="fa fa-user"></i> <span>Edit Profile</span>
-                        </a>
-                    </li>
-                    <!-- <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-edit"></i> <span>Forms</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
-                            <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-                            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
-                        </ul>
-                    </li> -->
                     <li class="header">More Information</li>
                     <li><a ui-sref="wakaf"><i class="fa fa-circle-o text-red"></i> <span>Wakaf Maps</span></a></li>
                     <li><a ui-sref="zcode"><i class="fa fa-circle-o text-yellow"></i> <span>ZCODE</span></a></li>
+                    <li><a href="assets/tpl/logins.html"><i class="fa fa-circle-o text-yellow"></i> <span>LOGIN</span></a></li>
                 </ul>
             </section>
             <!-- /.sidebar -->
         </aside>
-
-        <ui-view></ui-view>
+        <div class="content-wrapper">
+            <ui-view></ui-view>
+            <div ng-include="'assets/tpl/pager.html'"></div>
+        </div>
     </div>
     <!-- ./wrapper -->
     <toaster-container toaster-options="{'close-button': true}"></toaster-container>
@@ -143,18 +135,18 @@
     <script src="plugins/angular/ui-bootstrap-tpls-0.14.1.min.js"></script>
     <script src="plugins/angular/angular-animate.js"></script>
     <script src="plugins/angular/angular-ui-router.js"></script>
-    <script src="plugins/angular/angular-local-storage.min.js"></script>
+    <script src="plugins/angular/ngStorage.min.js"></script>
     <script src="plugins/angular/ui-router-styles.js"></script>
     <script src="plugins/angular/loading-bar/loading-bar.min.js"></script>
     <script src="plugins/angular/toaster/toaster.min.js"></script>
     <script src="plugins/angular/ng-table/ng-table.min.js"></script>
+    
     <!-- private script -->
-    <script type="assets/js/app.ui.min.js"></script>
+    <script src="assets/js/app.ui.min.js"></script>
     <script src="assets/js/app.js"></script>
     <script src="assets/js/config.lazyload.js"></script>
     <script src="assets/js/config.router.js"></script>
-    <script src="assets/js/controllers/auth.js"></script>
-    <script src="assets/js/controllers/landing.js"></script>
+    <script src="assets/js/services/auth.js"></script>
 </body>
 
 </html>

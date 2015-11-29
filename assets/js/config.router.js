@@ -1,57 +1,130 @@
 app.config(function($stateProvider, $urlRouterProvider, $httpProvider, JQ_CONFIG) {
-    $stateProvider.state('landing', {
+    $stateProvider.state('app', {
         url: '/x',
-        controller: 'LandingCtrl',
-        templateUrl: 'assets/tpl/landing.html',
-        resolve: ['uiLoad', function(uiLoad) {
-            return uiLoad.load(JQ_CONFIG.landing);
-        }]
-    })
-
-    .state('app', {
-        url: '/',
         templateUrl: 'assets/tpl/app.html',
-        resolve: ['uiLoad', function(uiLoad) {
-            return uiLoad.load(JQ_CONFIG.adminlte);
-        }],
         controller: function($scope) {},
     })
 
     .state('home', {
-        url: '/home',
-        templateUrl: 'assets/tpl/home.html',
-        resolve: ['uiLoad', function(uiLoad) {
-            return uiLoad.load(JQ_CONFIG.adminlte);
-        }],
-        controller: function($scope) {
-            $scope.share.menu = 'home';
+        url: '/',
+        templateUrl: 'assets/tpl/home.html'
+    })
+
+    .state('logins', {
+        url: '/logins',
+        templateUrl: 'assets/tpl/logins.html'
+    })
+
+    .state('branch', {
+        url: '/branch',
+        templateUrl: 'assets/tpl/branch.html',
+        controller: 'BranchCtrl',
+        resolve: {
+            deps: ['$ocLazyLoad',
+                function($ocLazyLoad) {
+                    return $ocLazyLoad.load(['assets/js/controllers/branch.js', 'assets/js/services/branch.js']);
+                }
+            ]
         }
+    })
+
+    .state('branchForm', {
+        url: '/branch-form',
+        templateUrl: 'assets/tpl/branch.form.html',
+        controller: 'BranchFormCtrl',
+        resolve: {
+            deps: ['$ocLazyLoad',
+                function($ocLazyLoad) {
+                    return $ocLazyLoad.load(['assets/js/controllers/branch.js', 'assets/js/services/branch.js']);
+                }
+            ]
+        },
+        params: {
+            branch: null
+        }
+    })
+
+    .state('employee', {
+        url: '/employee',
+        templateUrl: 'assets/tpl/employee.html',
+        controller: 'EmployeeCtrl',
+        resolve: {
+            deps: ['$ocLazyLoad',
+                function($ocLazyLoad) {
+                    return $ocLazyLoad.load(['assets/js/controllers/employee.js', 'assets/js/services/employee.js']);
+                }
+            ]
+        },
+        params: {
+            branch: null
+        }
+    })
+
+    .state('employeeForm', {
+        url: '/employee-form',
+        templateUrl: 'assets/tpl/employee.form.html',
+        controller: 'EmployeeFormCtrl',
+        resolve: {
+            deps: ['$ocLazyLoad',
+                function($ocLazyLoad) {
+                    return $ocLazyLoad.load(['assets/js/controllers/employee.js', 'assets/js/services/employee.js']);
+                }
+            ]
+        },
+        params: {
+            branch: null
+        }
+    })
+
+    .state('customer', {
+        url: '/customer',
+        templateUrl: 'assets/tpl/customer.html',
+        controller: 'CustomerCtrl',
+        resolve: {
+            deps: ['$ocLazyLoad',
+                function($ocLazyLoad) {
+                    return $ocLazyLoad.load(['assets/js/controllers/customer.js', 'assets/js/services/customer.js']);
+                }
+            ]
+        }
+    })
+
+    .state('customerForm', {
+        url: '/customer-form',
+        templateUrl: 'assets/tpl/customer-form.html',
+        controller: 'CustomerFormCtrl'
+    })
+
+    .state('car', {
+        url: '/car',
+        templateUrl: 'assets/tpl/car.html',
+        controller: 'CarCtrl',
+        resolve: {
+            deps: ['$ocLazyLoad',
+                function($ocLazyLoad) {
+                    return $ocLazyLoad.load(['assets/js/controllers/car.js', 'assets/js/services/car.js']);
+                }
+            ]
+        }
+    })
+
+    .state('carForm', {
+        url: '/car-form',
+        templateUrl: 'assets/tpl/car-form.html',
+        controller: 'CarFormCtrl'
     })
 
     .state('login', {
         url: '/login',
         templateUrl: 'assets/tpl/login.html',
-        controller: 'LoginCtrl'
-    })
-
-    .state('muwakif', {
-        url: '/muwakif',
-        templateUrl: 'assets/tpl/muwakif.html'
-    })
-
-    .state('forms', {
-        url: '/forms',
-        templateUrl: 'assets/tpl/forms.html'
-    })
-
-    .state('profile', {
-        url: '/profile',
-        templateUrl: 'assets/tpl/profile.html'
-    })
-
-    .state('wakaf', {
-        url: '/wakaf',
-        templateUrl: 'assets/tpl/wakafMaps.html'
+        controller: 'LoginCtrl',
+        resolve: {
+            deps: ['$ocLazyLoad',
+                function($ocLazyLoad) {
+                    return $ocLazyLoad.load(['assets/js/controllers/auth.js']);
+                }
+            ]
+        }
     })
 
     .state('zcode', {
@@ -59,5 +132,5 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider, JQ_CONFIG
         templateUrl: 'assets/tpl/zcode.html'
     });
 
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/');
 });

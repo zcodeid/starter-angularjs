@@ -2,7 +2,7 @@ var app = angular.module('app', [
     'ui.router',
     'ngAnimate',
     'ngTable',
-    'LocalStorageModule',
+    'ngStorage',
     'uiRouterStyles',
     'ui.bootstrap',
     'angular-loading-bar',
@@ -11,18 +11,32 @@ var app = angular.module('app', [
     'ui.load'
 ]);
 
-app.config(['$compileProvider', function ($compileProvider) {
+app.constant('config', {
+    url: 'http://localhost:3003/api'
+});
+
+app.config(['$compileProvider', function($compileProvider) {
     $compileProvider.debugInfoEnabled(false);
 }]);
 
-app.config(function(localStorageServiceProvider) {
-    localStorageServiceProvider.setPrefix('api');
-    localStorageServiceProvider.setStorageType('localStorage');//or sessionStorage
-});
+app.config(
+    ['$controllerProvider', '$compileProvider', '$filterProvider', '$provide',
+        function($controllerProvider, $compileProvider, $filterProvider, $provide) {
 
-app.run(function($rootScope, $location, $state, $anchorScroll, $stateParams) {
+            // lazy controller, directive and service
+            app.controller = $controllerProvider.register;
+            app.directive = $compileProvider.directive;
+            app.filter = $filterProvider.register;
+            app.factory = $provide.factory;
+            app.service = $provide.service;
+            app.constant = $provide.constant;
+            app.value = $provide.value;
+        }
+    ]);
+
+app.run(function($rootScope, $location, $state, $localStorage, $anchorScroll, $stateParams) {
     $rootScope.$on('$stateChangeStart', function(event, toState) {
-    	
+
     });
 });
 

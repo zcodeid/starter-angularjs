@@ -1,0 +1,118 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>Employee<small>Form</small></h1>
+    <ol class="breadcrumb">
+        <li><a href="" ui-sref="branch"><i class="fa fa-dashboard"></i> Employee</a></li>
+        <li class="active">Form</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">{{title}}</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form class="form-horizontal" ng-submit="save()">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">ID Number</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" placeholder="ID Number" ng-model="form.id">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Full Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" placeholder="Full Name" ng-model="form.name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Gender</label>
+                            <div class="col-sm-10">
+                                <div class="radio">
+                                    <label>
+                                      <input type="radio" name="optionsRadios" value="Male" checked="" ng-model="form.gender">
+                                      Male
+                                    </label>
+                                    <label>
+                                      <input type="radio" name="optionsRadios" value="Female" ng-model="form.gender">
+                                      Female
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Date of Birth</label>
+                            <div class="col-sm-10">
+                                <input type="date" class="form-control" ng-model="form.birth">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Phone</label>
+                            <div class="col-sm-10">
+                                <input type="tel" class="form-control" placeholder="Phone" ng-model="form.phone">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" placeholder="Email" ng-model="form.email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Registerd</label>
+                            <div class="col-sm-10">
+                                <input type="date" class="form-control" ng-model="form.workRegisterd">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Job Position</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" ng-model="form.position">
+                                    <option value="Manager">Manager</option>
+                                    <option value="Accounting">Accounting</option>
+                                    <option value="Staff">Staff</option>
+                                    <option value="Driver">Driver</option>
+                                    <option value="Co-Driver">Co-Driver</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Job Location</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" ng-model="form.location">
+                                    <option value="Branch 1">Branch 1</option>
+                                    <option value="Branch 2">Branch 2</option>
+                                    <option value="Branch 3">Branch 3</option>
+                                    <option value="Branch 4">Branch 4</option>
+                                    <option value="Branch 5">Branch 5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Address</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" placeholder="Address" ng-model="form.address">
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <div class="pull-right">
+                            <button type="submit" class="btn btn-info">Save</button>
+                            <button type="button" class="btn btn-danger" ng-click="delete()" ng-show="isEdit">Delete</button>
+                            <button type="button" class="btn btn-default" ui-sref="employee">Cancel</button>
+                        </div>
+                    </div>
+                    <!-- /.box-footer -->
+                </form>
+            </div>            
+        </div>
+    </div>
+</section>
+<!-- /.content -->
