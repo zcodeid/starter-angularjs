@@ -12,7 +12,8 @@ var app = angular.module('app', [
 ]);
 
 app.constant('config', {
-    url: 'http://localhost:3000/api'
+    // url: 'http://localhost:3002/api'
+    url: 'http://zcodeapi.herokuapp.com/api'
 });
 
 app.config(['$compileProvider', function($compileProvider) {
