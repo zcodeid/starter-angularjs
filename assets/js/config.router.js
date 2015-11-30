@@ -108,6 +108,64 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider, JQ_CONFIG
         }
     })
 
+    .state('user', {
+        url: '/user',
+        templateUrl: 'assets/tpl/user.html',
+        controller: 'UserCtrl',
+        resolve: {
+            deps: ['$ocLazyLoad',
+                function($ocLazyLoad) {
+                    return $ocLazyLoad.load(['assets/js/controllers/user.js', 'assets/js/services/user.js']);
+                }
+            ]
+        }
+    })
+
+    .state('userForm', {
+        url: '/userForm',
+        templateUrl: 'assets/tpl/user.form.html',
+        controller: 'UserFormCtrl',
+        params: {
+            user: null
+        },
+        resolve: {
+            deps: ['$ocLazyLoad',
+                function($ocLazyLoad) {
+                    return $ocLazyLoad.load(['assets/js/controllers/user.js', 'assets/js/services/user.js']);
+                }
+            ]
+        }
+    })
+
+    .state('role', {
+        url: '/role',
+        templateUrl: 'assets/tpl/role.html',
+        controller: 'RoleCtrl',
+        resolve: {
+            deps: ['$ocLazyLoad',
+                function($ocLazyLoad) {
+                    return $ocLazyLoad.load(['assets/js/controllers/role.js', 'assets/js/services/role.js']);
+                }
+            ]
+        }
+    })
+
+    .state('roleForm', {
+        url: '/roleForm',
+        templateUrl: 'assets/tpl/role.form.html',
+        controller: 'RoleFormCtrl',
+        params: {
+            role: null
+        },
+        resolve: {
+            deps: ['$ocLazyLoad',
+                function($ocLazyLoad) {
+                    return $ocLazyLoad.load(['assets/js/controllers/role.js', 'assets/js/services/role.js']);
+                }
+            ]
+        }
+    })
+
     .state('carForm', {
         url: '/car-form',
         templateUrl: 'assets/tpl/car-form.html',

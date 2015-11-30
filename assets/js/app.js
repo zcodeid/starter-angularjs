@@ -12,7 +12,7 @@ var app = angular.module('app', [
 ]);
 
 app.constant('config', {
-    url: 'http://localhost:3003/api'
+    url: 'http://localhost:3004/api'
 });
 
 app.config(['$compileProvider', function($compileProvider) {

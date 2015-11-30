@@ -1,0 +1,58 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>User<small>Form</small></h1>
+    <ol class="breadcrumb">
+        <li><a href="" ui-sref="user"><i class="fa fa-dashboard"></i> User</a></li>
+        <li class="active">Form</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">{{title}}</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form class="form-horizontal" ng-submit="save()">
+                <div class="box-body">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Username</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" placeholder="Username" ng-model="form.username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" placeholder="Email" ng-model="form.email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Full Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" placeholder="Full Name" ng-model="form.name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Phone</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" placeholder="Phone" ng-model="form.phone">
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                    <div class="pull-right">
+                        <button type="submit" class="btn btn-info">Save</button>
+                        <button type="button" class="btn btn-danger" ng-click="delete()" ng-show="isEdit">Delete</button>
+                        <button type="button" class="btn btn-default" ui-sref="user">Cancel</button>
+                    </div>
+                </div>
+                <!-- /.box-footer -->
+            </form>
+        </div>
+    </div>
+</section>
+<!-- /.content -->
